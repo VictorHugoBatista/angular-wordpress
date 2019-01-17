@@ -8,16 +8,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./list-posts.component.scss']
 })
 export class ListPostsComponent implements OnInit {
+  @Input() postType : string;
   public posts : Observable<any[]>;
-  @Input() postType;
 
-  constructor(private service : ListPostsService) {
-    this.posts = this.service.getPosts(this.postType, {
-      per_page: 4
-    });
-  }
+  constructor(private service : ListPostsService) {}
 
   ngOnInit() {
+    this.posts = this.service.getPosts(this.postType, {
+      per_page: 6
+    });
   }
 
 }
