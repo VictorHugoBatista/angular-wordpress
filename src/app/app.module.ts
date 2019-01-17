@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { ListPostsComponent } from './list-posts/list-posts.component';
 import { PagePostsComponent } from './page-posts/page-posts.component';
 import { PagePagesComponent } from './page-pages/page-pages.component';
-import { ListPagesComponent } from './list-pages/list-pages.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { ListPagesComponent } from './list-pages/list-pages.component';
     ListPostsComponent,
     PagePostsComponent,
     PagePagesComponent,
-    ListPagesComponent
   ],
   imports: [
     BrowserModule,
