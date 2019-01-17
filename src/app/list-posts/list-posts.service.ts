@@ -8,11 +8,9 @@ import { Observable } from 'rxjs';
 export class ListPostsService {
   constructor(private http: HttpClient) { }
 
-  getPosts() : Observable<any[]> {
-    return this.http.get<any[]>('https://www.oxygenna.com/wp-json/wp/v2/posts', {
-      params: {
-        per_page: '6'
-      }
+  getPosts(postType : string, params) : Observable<any[]> {
+    return this.http.get<any[]>(`https://www.oxygenna.com/wp-json/wp/v2/${postType}`, {
+      params,
     });
   }
 }
