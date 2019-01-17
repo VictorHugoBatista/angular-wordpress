@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ListPostsService } from './list-posts.service';
 import { Observable } from 'rxjs';
 
@@ -9,9 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class ListPostsComponent implements OnInit {
   public posts : Observable<any[]>;
+  @Input() postType;
 
   constructor(private service : ListPostsService) {
-    this.posts = this.service.getPosts('posts', {
+    this.posts = this.service.getPosts(this.postType, {
       per_page: 4
     });
   }
