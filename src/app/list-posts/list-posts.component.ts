@@ -11,7 +11,9 @@ export class ListPostsComponent implements OnInit {
   public posts : Observable<any[]>;
 
   constructor(private service : ListPostsService) {
-    this.posts = this.service.getPosts();
+    this.posts = this.service.getPosts('posts', {
+      per_page: 4
+    });
   }
 
   ngOnInit() {
