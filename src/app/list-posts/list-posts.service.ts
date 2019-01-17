@@ -8,7 +8,7 @@ export class ListPostsService {
   constructor(private http: HttpClient) { }
 
   getPosts() {
-    return this.http.get<any[]>('http://www.oxygenna.com/wp-json/wp/v2/posts', {
+    return this.http.get<any[]>('https://www.oxygenna.com/wp-json/wp/v2/posts', {
       params: {
         per_page: '6'
       }
