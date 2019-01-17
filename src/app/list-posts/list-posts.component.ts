@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./list-posts.component.scss']
 })
 export class ListPostsComponent implements OnInit {
-  @Input() postType : string;
-  @Input() perPage : Number;
+  @Input() public postType : string;
+  @Input() public perPage : Number;
   public posts : Observable<any[]>;
 
   constructor(private service : ListPostsService) {}
@@ -19,5 +19,4 @@ export class ListPostsComponent implements OnInit {
       per_page: this.perPage,
     });
   }
-
 }
