@@ -5,7 +5,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ post.title.rendered }}</h5>
           <p class="card-text" [innerHTML]="post.excerpt.rendered"></p>
-          <a [href]="post.link" class="btn btn-primary">Open post</a>
+          <a [routerLink]="post.slug" class="btn btn-primary">Open post</a>
         </div>
       </div>
     </div>
