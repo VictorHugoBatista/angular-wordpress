@@ -8,6 +8,7 @@ import { ListPostsComponent } from './list-posts/list-posts.component';
 import { PagePostsComponent } from './page-posts/page-posts.component';
 import { PagePagesComponent } from './page-pages/page-pages.component';
 import { PageSinglePostComponent } from './page-single-post/page-single-post.component';
+import { SinglePostsComponent } from './single-posts/single-posts.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PageSinglePostComponent } from './page-single-post/page-single-post.com
     PagePostsComponent,
     PagePagesComponent,
     PageSinglePostComponent,
+    SinglePostsComponent,
   ],
   imports: [
     BrowserModule,
