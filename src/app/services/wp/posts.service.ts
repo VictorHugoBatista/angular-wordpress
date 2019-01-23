@@ -6,10 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PostsService {
+  private apiUrl : string = 'https://www.oxygenna.com/wp-json/wp/v2/';
+
   constructor(private http: HttpClient) { }
 
   getPosts(postType : string, params) : Observable<any[]> {
-    return this.http.get<any[]>(`https://www.oxygenna.com/wp-json/wp/v2/${postType}`, {
+    return this.http.get<any[]>(this.apiUrl + postType, {
       params,
     });
   }
