@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ListPostsService } from './list-posts.service';
+import { PostsService } from '../services/wp/posts.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ export class ListPostsComponent implements OnInit {
   @Input() public perPage : Number;
   public posts : Observable<any[]>;
 
-  constructor(private service : ListPostsService) {}
+  constructor(private service : PostsService) {}
 
   ngOnInit() {
     this.posts = this.service.getPosts(this.postType, {
