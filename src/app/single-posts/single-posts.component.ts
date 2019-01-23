@@ -10,12 +10,15 @@ import { Observable } from 'rxjs';
 export class SinglePostsComponent implements OnInit {
   @Input() public postType : string;
   @Input() public postSlug : string;
-  public post : Observable<any[]>;
+  public post;
 
   constructor(private service : PostsService) { }
 
   ngOnInit() {
-    this.post = this.service.getPost(this.postType, this.postSlug);
+    this.service.getPost(this.postType, this.postSlug)
+      .subscribe(posts => {
+        this.post = posts[0];
+      });
   }
 
 }
