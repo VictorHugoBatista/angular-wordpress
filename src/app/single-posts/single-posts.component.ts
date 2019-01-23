@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PostsService } from '../services/wp/posts.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-single-posts',
@@ -6,12 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./single-posts.component.scss']
 })
 export class SinglePostsComponent implements OnInit {
+  @Input() public postType : string;
   @Input() public postSlug : string;
+  public post : Observable<any[]>;
 
-  constructor() { }
+  constructor(private service : PostsService) { }
 
   ngOnInit() {
-    console.log(this.postSlug);
+    this.post = this.service.getPost(this.postType, this.postSlug);
   }
 
 }
