@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-single-page',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-single-page.component.scss']
 })
 export class PageSinglePageComponent implements OnInit {
+  private postSlug : string;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.postSlug = this.route.snapshot.paramMap.get('slug');
   }
 
 }
