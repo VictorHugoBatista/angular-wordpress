@@ -9,6 +9,7 @@ import { PagePostsComponent } from './page-posts/page-posts.component';
 import { PagePagesComponent } from './page-pages/page-pages.component';
 import { PageSinglePostComponent } from './page-single-post/page-single-post.component';
 import { SinglePostsComponent } from './single-posts/single-posts.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SinglePostsComponent } from './single-posts/single-posts.component';
     PagePagesComponent,
     PageSinglePostComponent,
     SinglePostsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
