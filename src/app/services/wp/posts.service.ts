@@ -10,9 +10,13 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(postType : string, params) : Observable<any[]> {
+  public getPosts(postType : string, params) : Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl + postType, {
       params,
     });
+  }
+
+  public getPost(postType : string, postSlug : string) {
+    return this.http.get<any[]>(`${this.apiUrl}${postType}?slug=${postSlug}`);
   }
 }
