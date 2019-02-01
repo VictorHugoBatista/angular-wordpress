@@ -4,11 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListPostsComponent } from './list-posts/list-posts.component';
+import { ListPostsComponent } from './components/list-posts/list-posts.component';
 import { PagePostsComponent } from './pages/page-posts/page-posts.component';
 import { PagePagesComponent } from './pages/page-pages/page-pages.component';
 import { PageSinglePostComponent } from './pages/page-single-post/page-single-post.component';
-import { SinglePostsComponent } from './single-posts/single-posts.component';
+import { SinglePostsComponent } from './components/single-posts/single-posts.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageSinglePageComponent } from './pages/page-single-page/page-single-page.component';
 

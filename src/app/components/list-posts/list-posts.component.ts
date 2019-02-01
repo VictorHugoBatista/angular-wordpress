@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PostsService } from '../services/wp/posts.service';
+import { PostsService } from '../../services/wp/posts.service';
 import { Observable } from 'rxjs';
 
 @Component({
