@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,9 +10,10 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  public getPosts(postType : string, params) : Observable<any[]> {
+  public getPosts(postType : string, params) : Observable<HttpResponse<any[]>> {
     return this.http.get<any[]>(this.apiUrl + postType, {
       params,
+      observe: 'response',
     });
   }
 
