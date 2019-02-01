@@ -10,13 +10,13 @@ import { Observable } from 'rxjs';
 export class ListPostsComponent implements OnInit {
   @Input() public postType : string;
   @Input() public perPage : Number;
-  public posts : Observable<any[]>;
+  public posts : Array<any>;
 
   constructor(private service : PostsService) {}
 
   ngOnInit() {
-    this.posts = this.service.getPosts(this.postType, {
+    this.service.getPosts(this.postType, {
       per_page: this.perPage,
-    });
+    }).subscribe(posts => this.posts = posts);
   }
 }
