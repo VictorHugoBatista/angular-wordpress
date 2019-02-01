@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PagePostsComponent } from './page-posts/page-posts.component';
-import { PagePagesComponent } from './page-pages/page-pages.component';
-import { PageSinglePostComponent } from './page-single-post/page-single-post.component';
-import { PageSinglePageComponent } from './page-single-page/page-single-page.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PagePostsComponent } from './pages/page-posts/page-posts.component';
+import { PagePagesComponent } from './pages/page-pages/page-pages.component';
+import { PageSinglePostComponent } from './pages/page-single-post/page-single-post.component';
+import { PageSinglePageComponent } from './pages/page-single-page/page-single-page.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {

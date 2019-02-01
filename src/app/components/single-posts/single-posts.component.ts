@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PostsService } from '../services/wp/posts.service';
-import { Observable } from 'rxjs';
+import { PostsService } from '../../services/wp/posts.service';
 
 @Component({
   selector: 'app-single-posts',
