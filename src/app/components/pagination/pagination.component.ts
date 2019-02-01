@@ -13,16 +13,12 @@ export class PaginationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.paginationItems = [
-      {
-        page_number: 1,
-        active: false,
-      },
-      {
-        page_number: 2,
-        active: true,
-      },
-    ];
+    this.paginationItems = Array(this.totalPages).fill(0).map((_, item) => {
+      return {
+        page_number: item + 1,
+        active: item + 1 === this.currentPage,
+      } ;
+    });
   }
 
 }
