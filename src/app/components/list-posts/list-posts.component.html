@@ -13,5 +13,5 @@
 </div>
 
 <app-pagination [startTotalPages]="endLoadingEvent.asObservable()"
-  [shownPageSteps]="4" (pageSelected)="changePage($event)">
+  [shownPageSteps]="4" (pageSelected)="getPostsPage($event)">
 </app-pagination>

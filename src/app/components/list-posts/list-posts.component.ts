@@ -43,14 +43,6 @@ export class ListPostsComponent implements OnInit {
   }
 
   /**
-   * Recarrega a listagem com os posts de uma nova página.
-   * @param newPageNumber 
-   */
-  public changePage(newPageNumber) {
-    this.getPostsPage(newPageNumber);
-  }
-
-  /**
    * Carrega os posts de uma página na API do WordPress e
    * carrega no template. Também atualiza o componente
    * de paginação com os novos dados.
