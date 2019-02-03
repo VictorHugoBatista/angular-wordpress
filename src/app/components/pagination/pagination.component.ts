@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
-  @Input() public currentPage : Number;
   @Input() public startTotalPages : Observable<any>;
+  public currentPage : Number = 1;
   public totalPages : Number;
   public paginationItems : Array<Object> = [];
   public startTotalPagesSubscription : any;
@@ -16,10 +16,11 @@ export class PaginationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.startTotalPagesSubscription = this.startTotalPages.subscribe(totalPages => {
-      this.totalPages = totalPages;
-      this.regeneratePagination();
-    });
+    this.startTotalPagesSubscription =
+      this.startTotalPages.subscribe(totalPages => {
+        this.totalPages = totalPages;
+        this.regeneratePagination();
+      });
   }
 
   private regeneratePagination() {
