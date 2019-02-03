@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 /**
@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit, OnDestroy {
   @Input() public startTotalPages : Observable<any>;
   @Input() public shownPageSteps : any;
   @Output() public pageSelected = new EventEmitter();
@@ -41,6 +41,10 @@ export class PaginationComponent implements OnInit {
    */
   public paginationItems : Array<Object> = [];
 
+  /**
+   * Subscrição no evento @Input startTotalPages,
+   * pronta para ser destruída no evento ngOnDestroy.
+   */
   public startTotalPagesSubscription : any;
 
   constructor() { }
@@ -55,6 +59,10 @@ export class PaginationComponent implements OnInit {
         this.totalPages = totalPages;
         this.regeneratePagination();
       });
+  }
+
+  ngOnDestroy() {
+    this.startTotalPagesSubscription.unsubscribe();
   }
 
   /**
