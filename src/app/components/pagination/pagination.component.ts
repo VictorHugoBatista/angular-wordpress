@@ -33,7 +33,7 @@ export class PaginationComponent implements OnInit {
     pages.reverse();
 
     // Current page, marked.
-    pages.push(this.generatePageItem(this.currentPage));
+    pages.push(this.generatePageItem(this.currentPage, true));
 
     // Next pages.
     for (let i = this.currentPage + 1;  
@@ -47,10 +47,10 @@ export class PaginationComponent implements OnInit {
     this.paginationItems = pages;
   }
 
-  private generatePageItem(pageNumber) {
+  private generatePageItem(pageNumber, hasActiveClass = false) {
     return {
       page_number: pageNumber,
-      active: pageNumber === this.currentPage,
+      active: hasActiveClass,
     };
   }
 }
