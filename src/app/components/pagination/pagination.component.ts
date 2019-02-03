@@ -67,10 +67,14 @@ export class PaginationComponent implements OnInit, OnDestroy {
 
   /**
    * Evento de click dos elementos do componente.
+   * Evita várias requisições de carregamento da mesma página.
    *
    * @param newPageNumber {Number} : Número da nova página atual.
    */
   public onNumberClick(newPageNumber : Number) {
+    if (newPageNumber === this.currentPage) {
+      return;
+    }
     this.currentPage = newPageNumber;
     this.pageSelected.next(newPageNumber);
   }
