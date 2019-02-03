@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,10 +8,13 @@ import { Observable } from 'rxjs';
 })
 export class PaginationComponent implements OnInit {
   @Input() public startTotalPages : Observable<any>;
+
   public currentPage : any = 1;
   public totalPages : Number;
   public paginationItems : Array<Object> = [];
+
   public startTotalPagesSubscription : any;
+  @Output() public pageSelected = new EventEmitter();
 
   constructor() { }
 
@@ -25,7 +28,7 @@ export class PaginationComponent implements OnInit {
 
   public onNumberClick(newPageNumber) {
     this.currentPage = newPageNumber;
-    this.regeneratePagination();
+    this.pageSelected.next(newPageNumber);
   }
 
   private regeneratePagination() {
