@@ -13,5 +13,5 @@
 </div>
 
 <app-pagination [startTotalPages]="endLoadingEvent.asObservable()"
-  (pageSelected)="changePage($event)">
+  [shownPageSteps]="4" (pageSelected)="changePage($event)">
 </app-pagination>

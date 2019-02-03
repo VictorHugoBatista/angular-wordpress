@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PaginationComponent implements OnInit {
   @Input() public startTotalPages : Observable<any>;
+  @Input() public shownPageSteps : any;
 
   public currentPage : any = 1;
   public totalPages : Number;
@@ -34,7 +35,8 @@ export class PaginationComponent implements OnInit {
   private regeneratePagination() {
     let pages = [];
     // Previous pages.
-    for (let i = this.currentPage - 1; i >= this.currentPage - 3 && i > 1; i--) {
+    for (let i = this.currentPage - 1;
+      i >= this.currentPage - this.shownPageSteps && i > 1; i--) {
       pages.push(this.generatePageItem(i));
     }
     // First page.
@@ -46,7 +48,7 @@ export class PaginationComponent implements OnInit {
     pages.push(this.generatePageItem(this.currentPage, true));
     // Next pages.
     for (let i = this.currentPage + 1;  
-      i <= this.currentPage + 3 && i < this.totalPages; i++) {
+      i <= this.currentPage + this.shownPageSteps && i < this.totalPages; i++) {
       pages.push(this.generatePageItem(i));
     }
     // Last page.
