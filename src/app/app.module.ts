@@ -11,6 +11,7 @@ import { PageSinglePostComponent } from './pages/page-single-post/page-single-po
 import { SinglePostsComponent } from './components/single-posts/single-posts.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageSinglePageComponent } from './pages/page-single-page/page-single-page.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PageSinglePageComponent } from './pages/page-single-page/page-single-pa
     SinglePostsComponent,
     PageNotFoundComponent,
     PageSinglePageComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,
