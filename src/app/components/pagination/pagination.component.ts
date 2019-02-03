@@ -42,7 +42,9 @@ export class PaginationComponent implements OnInit {
     }
 
     // Last page.
-    pages.push(this.generatePageItem(this.totalPages));
+    if (this.currentPage < this.totalPages) {
+      pages.push(this.generatePageItem(this.totalPages));
+    }
 
     this.paginationItems = pages;
   }
@@ -52,5 +54,10 @@ export class PaginationComponent implements OnInit {
       page_number: pageNumber,
       active: hasActiveClass,
     };
+  }
+
+  public onNumberClick(newPageNumber) {
+    this.currentPage = newPageNumber;
+    this.regeneratePagination();
   }
 }
