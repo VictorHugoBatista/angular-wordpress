@@ -27,10 +27,8 @@ export class PaginationComponent implements OnInit {
     let pages = [];
 
     // Previous pages.
-    for (let i = this.currentPage - 1; i >= this.currentPage - 3; i--) {
-      if (i > 0) {
-        pages.push(this.generatePageItem(i));
-      }
+    for (let i = this.currentPage - 1; i >= this.currentPage - 3 && i > 0; i--) {
+      pages.push(this.generatePageItem(i));
     }
     pages.reverse();
 
@@ -38,10 +36,9 @@ export class PaginationComponent implements OnInit {
     pages.push(this.generatePageItem(this.currentPage));
 
     // Next pages.
-    for (let i = this.currentPage + 1; i <= this.currentPage + 3; i++) {
-      if (i < this.totalPages) {
-        pages.push(this.generatePageItem(i));
-      }
+    for (let i = this.currentPage + 1;  
+      i <= this.currentPage + 3 && i < this.totalPages; i++) {
+      pages.push(this.generatePageItem(i));
     }
 
     // Last page.
