@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PaginationComponent implements OnInit {
   @Input() public startTotalPages : Observable<any>;
-  public currentPage : Number = 1;
+  public currentPage : any = 1;
   public totalPages : Number;
   public paginationItems : Array<Object> = [];
   public startTotalPagesSubscription : any;
@@ -24,11 +24,36 @@ export class PaginationComponent implements OnInit {
   }
 
   private regeneratePagination() {
-    this.paginationItems = Array(this.totalPages).fill(0).map((_, item) => {
-      return {
-        page_number: item + 1,
-        active: item + 1 === this.currentPage,
-      } ;
-    });
+    let pages = [];
+
+    // Previous pages.
+    for (let i = this.currentPage - 1; i >= this.currentPage - 3; i--) {
+      if (i > 0) {
+        pages.push(this.generatePageItem(i));
+      }
+    }
+    pages.reverse();
+
+    // Current page, marked.
+    pages.push(this.generatePageItem(this.currentPage));
+
+    // Next pages.
+    for (let i = this.currentPage + 1; i <= this.currentPage + 3; i++) {
+      if (i < this.totalPages) {
+        pages.push(this.generatePageItem(i));
+      }
+    }
+
+    // Last page.
+    pages.push(this.generatePageItem(this.totalPages));
+
+    this.paginationItems = pages;
+  }
+
+  private generatePageItem(pageNumber) {
+    return {
+      page_number: pageNumber,
+      active: pageNumber === this.currentPage,
+    };
   }
 }
