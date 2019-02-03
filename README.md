@@ -1,5 +1,20 @@
 # AngularWordpress
 
+---
+Estudos de coneção do Angular com uma API WordPress.
+
+Material utilizado:
+ - https://itnext.io/connecting-angular-6-to-wordpress-ee0055686a70
+ - https://www.youtube.com/watch?v=Tux1nhBPl_w (Introdução ao RXJS)
+ - https://netbasal.com/event-emitters-in-angular-13e84ee8d28c
+ - https://medium.com/@luukgruijs/understanding-rxjs-subjects-339428a1815b
+ - https://stackoverflow.com/questions/44053227/how-to-emit-an-event-in-angular-from-parent-to-child
+ - https://codex.wordpress.org/Class_Reference/WP_Query
+
+ Material extra:
+  - https://www.youtube.com/watch?v=_BpmfnqjgzQ (Overview do padrão Observer)
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
 ## Development server
