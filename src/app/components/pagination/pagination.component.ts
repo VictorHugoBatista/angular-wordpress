@@ -23,6 +23,11 @@ export class PaginationComponent implements OnInit {
       });
   }
 
+  public onNumberClick(newPageNumber) {
+    this.currentPage = newPageNumber;
+    this.regeneratePagination();
+  }
+
   private regeneratePagination() {
     let pages = [];
 
@@ -54,10 +59,5 @@ export class PaginationComponent implements OnInit {
       page_number: pageNumber,
       active: hasActiveClass,
     };
-  }
-
-  public onNumberClick(newPageNumber) {
-    this.currentPage = newPageNumber;
-    this.regeneratePagination();
   }
 }
