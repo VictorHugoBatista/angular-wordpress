@@ -33,27 +33,26 @@ export class PaginationComponent implements OnInit {
 
   private regeneratePagination() {
     let pages = [];
-
     // Previous pages.
-    for (let i = this.currentPage - 1; i >= this.currentPage - 3 && i > 0; i--) {
+    for (let i = this.currentPage - 1; i >= this.currentPage - 3 && i > 1; i--) {
       pages.push(this.generatePageItem(i));
     }
+    // First page.
+    if (1 < this.currentPage) {
+      pages.push(this.generatePageItem(1));
+    }
     pages.reverse();
-
     // Current page, marked.
     pages.push(this.generatePageItem(this.currentPage, true));
-
     // Next pages.
     for (let i = this.currentPage + 1;  
       i <= this.currentPage + 3 && i < this.totalPages; i++) {
       pages.push(this.generatePageItem(i));
     }
-
     // Last page.
     if (this.currentPage < this.totalPages) {
       pages.push(this.generatePageItem(this.totalPages));
     }
-
     this.paginationItems = pages;
   }
 
